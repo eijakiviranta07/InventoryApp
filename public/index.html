@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillForge - Master Your Future</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <h1>SkillForge</h1>
+            </div>
+            <p class="tagline">Master Your Future, One Skill at a Time</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Statistics Dashboard -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <div class="stat-value" id="total-products">0</div>
+                <div class="stat-label">Total Courses</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="total-quantity">0</div>
+                <div class="stat-label">Available Units</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="categories-count">0</div>
+                <div class="stat-label">Categories</div>
+            </div>
+        </section>
+
+        <!-- Action Bar -->
+        <section class="action-bar">
+            <button class="btn btn-primary" id="add-product-btn">
+                <span>➕</span> Add New Course
+            </button>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search courses..." />
+                <span class="search-icon">🔍</span>
+            </div>
+            <select id="category-filter" class="filter-select">
+                <option value="">All Categories</option>
+            </select>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="products-section">
+            <div id="products-grid" class="products-grid">
+                <!-- Products will be loaded here dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Add/Edit Product Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Add New Course</h2>
+                <button class="close-btn" id="close-modal">&times;</button>
+            </div>
+            <form id="product-form">
+                <input type="hidden" id="product-id">
+                
+                <div class="form-group">
+                    <label for="product-name">Course Name *</label>
+                    <input type="text" id="product-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-category">Category *</label>
+                    <input type="text" id="product-category" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-description">Description</label>
+                    <textarea id="product-description" rows="3"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="product-price">Price ($) *</label>
+                        <input type="number" id="product-price" step="0.01" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-quantity">Quantity *</label>
+                        <input type="number" id="product-quantity" min="0" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-image">Emoji Icon</label>
+                    <input type="text" id="product-image" placeholder="📚" maxlength="2">
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancel-btn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Course</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h2>Confirm Delete</h2>
+                <button class="close-btn" id="close-delete-modal">&times;</button>
+            </div>
+            <p>Are you sure you want to delete this course? This action cannot be undone.</p>
+            <div class="form-actions">
+                <button class="btn btn-secondary" id="cancel-delete-btn">Cancel</button>
+                <button class="btn btn-danger" id="confirm-delete-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading-spinner">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
