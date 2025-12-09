@@ -124,11 +124,22 @@ ISC
 ## 💡 Future Enhancements
 
 - User authentication and authorization
+- API rate limiting for production deployment
 - Product images upload
 - Sales tracking
 - Export data to CSV/Excel
 - Multi-language support
 - Dark mode
+
+## ⚠️ Security Notes
+
+This application is designed for local development and demonstration purposes. For production deployment, consider adding:
+- Rate limiting on API endpoints
+- Input validation and sanitization
+- HTTPS/TLS encryption
+- User authentication and authorization
+- CORS configuration
+- Security headers
 
 ---
 
