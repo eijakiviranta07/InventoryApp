@@ -5,6 +5,7 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const DEFAULT_PRODUCT_IMAGE = '📦';
 
 // Middleware
 app.use(bodyParser.json());
@@ -66,7 +67,7 @@ app.post('/api/products', (req, res) => {
     VALUES (?, ?, ?, ?, ?, ?)
   `;
   
-  db.run(query, [name, category, description || '', price, quantity, image || '📦'], function(err) {
+  db.run(query, [name, category, description || '', price, quantity, image || DEFAULT_PRODUCT_IMAGE], function(err) {
     if (err) {
       res.status(500).json({ error: err.message });
       return;

@@ -274,7 +274,7 @@ class InventoryApp {
     this.filteredProducts = this.products.filter(product => {
       const matchesSearch = 
         product.name.toLowerCase().includes(searchTerm) ||
-        product.description.toLowerCase().includes(searchTerm) ||
+        (product.description && product.description.toLowerCase().includes(searchTerm)) ||
         product.category.toLowerCase().includes(searchTerm);
       
       const matchesCategory = 
